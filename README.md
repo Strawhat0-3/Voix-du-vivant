@@ -1,203 +1,124 @@
-# 🌍 Voix du Vivant Afrique
+# Voix du Vivant Afrique
 
-> Découvrir, Comprendre et Protéger la biodiversité africaine
-
-**URL du projet**: https://lovable.dev/projects/9766ef03-dce2-4a64-b4e2-3bef6270c003
-
----
-
-## 📖 Présentation
-
-**Voix du Vivant Afrique** est une plateforme web de média en ligne dédiée à la découverte, la compréhension et la protection de la biodiversité africaine. C'est un site éditorial combinant articles, podcasts et contenus multimédias pour sensibiliser le public aux enjeux environnementaux du continent africain.
+> **Média en ligne dédié à la biodiversité africaine.**  
+> Découvrir, Comprendre et Protéger la richesse naturelle du continent africain.
 
 ---
 
-## ✨ Fonctionnalités
+## 🌍 À propos
 
-### 🏠 Interface Publique
-- **Page d'accueil** immersive avec section héro présentant la mission
-- **Catalogue d'articles** organisés par rubriques thématiques
-- **Section podcasts** pour des récits audio immersifs
-- **Système de notation** par étoiles (1-5) pour articles et podcasts
-- **Commentaires** modérés sur les contenus
-- **Section "Soutenez-nous"** pour les dons externes
-- **Section "Devenir créateur"** pour rejoindre l'équipe
+**Voix du Vivant Afrique** est une plateforme de vulgarisation scientifique et environnementale focalisée sur la faune, la flore et la conservation en Afrique. Elle propose des articles éditoriaux, des podcasts immersifs et une bibliothèque de ressources documentaires.
 
-### 📚 Rubriques Thématiques
-| Rubrique | Description |
-|----------|-------------|
-| 🌿 Espèces à la loupe | Portraits détaillés de la faune et flore africaine |
-| 🧠 Comprendre l'environnement | Enjeux écologiques : climat, déforestation, biodiversité |
-| 👥 Acteurs du vivant | Rencontres avec scientifiques, militants, communautés |
-| 🌳 Traditions & Nature | Savoirs ancestraux et préservation environnementale |
-| 🎧 Podcasts & Audio | Récits sonores immersifs |
-| 📍 Initiatives locales | Projets environnementaux inspirants |
-| 🎓 Jeunesse & Pédagogie | Contenus éducatifs pour les jeunes |
-| 📖 Ressources | Guides pratiques et fiches pédagogiques |
+## 🛠️ Stack technique
 
-### ✏️ Espace Éditeur (`/editor`)
-- Tableau de bord avec statistiques personnelles
-- Création et édition d'articles avec éditeur riche
-- Gestion des podcasts (upload audio, descriptions)
-- Soumission de contenu pour validation
+| Couche | Technologie |
+|---|---|
+| **Framework** | [React 18](https://react.dev) + [TypeScript](https://www.typescriptlang.org) |
+| **Bundler** | [Vite 5](https://vitejs.dev) (SWC) |
+| **Styles** | [Tailwind CSS 3](https://tailwindcss.com) + CSS custom properties |
+| **UI Components** | [shadcn/ui](https://ui.shadcn.com) (Radix Primitives) |
+| **Animations** | [Framer Motion](https://www.framer.com/motion/) + Canvas API |
+| **Base de données** | [Supabase](https://supabase.com) (PostgreSQL, Auth, Storage, RLS) |
+| **Data Fetching** | [TanStack React Query](https://tanstack.com/query) |
+| **Routing** | [React Router DOM v6](https://reactrouter.com) |
+| **Rich Text** | [Tiptap](https://tiptap.dev) (Editor admin) |
+| **Sanitization** | [DOMPurify](https://github.com/cure53/DOMPurify) |
 
-### 👑 Espace Administration (`/admin`)
-- Tableau de bord avec statistiques globales
-- Modération des contenus (validation/rejet)
-- Gestion des comptes éditeurs (création, modification, suppression)
-- Modération des commentaires
-- Gestion des utilisateurs
-
----
-
-## 🔐 Système de Rôles
-
-| Rôle | Permissions |
-|------|-------------|
-| **Utilisateur** | Lecture, commentaires, notation |
-| **Éditeur** | Création de contenu, soumission pour validation |
-| **Administrateur** | Accès complet, publication, modération, gestion des éditeurs |
-
----
-
-## 🛠️ Stack Technique
-
-- **Frontend** : React 18 + TypeScript + Vite
-- **Styling** : Tailwind CSS + shadcn/ui
-- **Backend** : Lovable Cloud (Supabase)
-- **Base de données** : PostgreSQL
-- **Stockage** : Supabase Storage (images, audio)
-- **Authentification** : Supabase Auth
-
----
-
-## 📁 Structure du Projet
-
-```
-src/
-├── assets/              # Images et ressources statiques
-├── components/          # Composants React réutilisables
-│   ├── ui/              # Composants UI (shadcn)
-│   └── ...              # Composants métier
-├── hooks/               # Hooks personnalisés
-├── integrations/        # Intégrations (Supabase)
-├── lib/                 # Utilitaires
-├── pages/               # Pages de l'application
-│   ├── Admin*.tsx       # Pages administration
-│   ├── Editor*.tsx      # Pages éditeur
-│   └── ...              # Pages publiques
-└── index.css            # Styles globaux et design system
-
-supabase/
-├── functions/           # Edge Functions
-└── migrations/          # Migrations SQL
-
-docs/
-└── TECHNICAL.md         # Documentation technique détaillée
-```
-
----
-
-## 🚀 Démarrage Rapide
+## 🚀 Démarrage rapide
 
 ### Prérequis
-- Node.js & npm installés - [installer avec nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+
+- **Node.js** ≥ 18.x
+- **npm** ≥ 9.x (ou pnpm / yarn)
+- Un projet [Supabase](https://supabase.com) avec les tables et fonctions RPC configurées
 
 ### Installation
 
-```sh
-# Cloner le repository
-git clone <YOUR_GIT_URL>
-
-# Naviguer dans le dossier
-cd <YOUR_PROJECT_NAME>
+```bash
+# Cloner le dépôt
+git clone https://github.com/Strawhat0-3/Voix-du-vivant.git
+cd Voix-du-vivant
 
 # Installer les dépendances
 npm install
+```
 
-# Lancer en développement
+### Configuration
+
+Créez un fichier `.env` à la racine du projet :
+
+```env
+VITE_SUPABASE_URL="https://votre-projet.supabase.co"
+VITE_SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIs..."
+```
+
+| Variable | Description |
+|---|---|
+| `VITE_SUPABASE_URL` | URL de votre instance Supabase |
+| `VITE_SUPABASE_ANON_KEY` | Clé publique anonyme (anon key) de Supabase |
+
+### Lancer le serveur de développement
+
+```bash
 npm run dev
 ```
 
-### Autres commandes
+L'application démarre sur `http://localhost:8080`.
 
-```sh
-npm run build      # Build production
-npm run preview    # Preview du build
-npm run lint       # Vérification du code
+### Build de production
+
+```bash
+npm run build
+npm run preview   # Prévisualiser le build
 ```
 
----
-
-## 📊 Base de Données
-
-### Tables Principales
-- `articles` - Articles du blog
-- `podcasts` - Épisodes de podcasts
-- `comments` - Commentaires des utilisateurs
-- `profiles` - Profils utilisateurs
-- `user_roles` - Rôles et permissions
-- `article_views` / `podcast_views` - Statistiques de vues
-- `article_ratings` / `podcast_ratings` - Notations
-
-📘 Voir [docs/TECHNICAL.md](docs/TECHNICAL.md) pour le schéma complet.
-
----
-
-## 🔒 Sécurité
-
-- Row Level Security (RLS) activé sur toutes les tables
-- Authentification requise pour les actions sensibles
-- Rôles séparés dans une table dédiée (prévention des escalades de privilèges)
-- Validation des entrées côté client et serveur
-
----
-
-## 📝 Workflow Éditorial
+## 📁 Structure du projet
 
 ```
-Éditeur crée un contenu (non publié)
-        ↓
-Admin voit le contenu en attente
-        ↓
-Admin valide et publie
-        ↓
-Contenu visible publiquement
-        ↓
-Utilisateurs commentent (modération)
+src/
+├── components/       # Composants React (UI, layout, features)
+│   ├── ui/           # Primitives shadcn/ui (Button, Card, Dialog…)
+│   ├── MagazineHero.tsx
+│   ├── EditorialGrid.tsx
+│   ├── SuperSearch.tsx
+│   ├── ClapButton.tsx
+│   └── ...
+├── pages/            # Pages routées (Index, Articles, Podcasts, Admin…)
+├── hooks/            # Custom hooks (useAuth, useDebounce, useTrackView…)
+├── contexts/         # React Contexts (AudioPlayer…)
+├── integrations/     # Supabase client & types auto-générés
+├── lib/              # Utilitaires (sanitize, cn…)
+├── assets/           # Images statiques
+└── index.css         # Design system (variables, utilitaires, animations)
 ```
 
----
+## 🎨 Design
 
-## 🚢 Déploiement
+Le design suit une esthétique **Afro-Minimaliste** — typographie Serif dramatique (Fraunces, Playfair Display), palette terrestre (ocre, sienna, forêt), et effets premium :
 
-### Via Lovable
-Ouvrir [Lovable](https://lovable.dev/projects/9766ef03-dce2-4a64-b4e2-3bef6270c003) → Share → Publish
+- **Canvas magnétique** — Particules interactives en arrière-plan
+- **Grain de film** — Texture SVG fractal en overlay
+- **Curseur custom** — Orbe ocre avec spring physics (Framer Motion)
+- **Smooth scroll** — Animations de sections au défilement
 
-### Domaine personnalisé
-Project → Settings → Domains → Connect Domain
+## 🔐 Sécurité
 
-📖 [Documentation domaine personnalisé](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- Toutes les requêtes publiques filtrent `.eq("published", true)`
+- Commentaires soumis avec `approved: false` (modération admin)
+- Sanitization HTML via DOMPurify sur tout le contenu rendu
+- Row Level Security (RLS) activé sur toutes les tables Supabase
+- Zone admin protégée par `AdminGuard` (vérification rôle)
 
----
+## 📦 Déploiement
 
-## 📖 Documentation
+Compatible avec tout hébergeur de sites statiques :
 
-- [Documentation Technique Complète](docs/TECHNICAL.md)
-- [Documentation Lovable](https://docs.lovable.dev)
+- **[Vercel](https://vercel.com)** — `npm run build` → déploiement auto
+- **[Netlify](https://netlify.com)** — Build command: `npm run build`, publish: `dist`
+- **[Cloudflare Pages](https://pages.cloudflare.com)** — Idem
 
----
+> ⚠️ N'oubliez pas de configurer les variables d'environnement (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`) dans le dashboard de votre hébergeur.
 
-## 🤝 Contribution
+## 📝 Licence
 
-Les contributions sont les bienvenues ! Voir la section "Devenir créateur" sur le site.
-
----
-
-## 📄 Licence
-
-Tous droits réservés © Voix du Vivant Afrique
-
----
-
-*Ensemble, faisons entendre la voix du vivant et préservons la richesse de notre continent pour les générations futures.* 🌿
+Projet privé — Tous droits réservés © Voix du Vivant Afrique.

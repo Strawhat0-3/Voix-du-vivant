@@ -24,7 +24,7 @@
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    LOVABLE CLOUD (Supabase)                  │
+│                    SUPABASE (PostgreSQL + Auth + Storage)     │
 ├─────────────────┬─────────────────┬─────────────────────────┤
 │   PostgreSQL    │    Storage      │    Edge Functions       │
 │   (Database)    │  (Files/Media)  │   (Serverless Logic)    │
@@ -469,8 +469,7 @@ const { data, error } = await supabase.functions.invoke('create-editor', {
 
 ```env
 VITE_SUPABASE_URL=https://xxx.supabase.co
-VITE_SUPABASE_PUBLISHABLE_KEY=eyJ...
-VITE_SUPABASE_PROJECT_ID=xxx
+VITE_SUPABASE_ANON_KEY=eyJ...
 ```
 
 ### Commandes
@@ -491,8 +490,8 @@ npm run lint
 
 ### Publication
 
-1. **Frontend** : Cliquer sur "Publish" → "Update" dans Lovable
-2. **Backend** : Les Edge Functions se déploient automatiquement
+1. **Frontend** : `npm run build` → déployer le dossier `dist/` sur Vercel, Netlify ou Cloudflare Pages
+2. **Backend** : Les Edge Functions se déploient via `supabase functions deploy`
 
 ---
 
@@ -501,7 +500,7 @@ npm run lint
 ### Logs & Debugging
 
 - **Console logs** : Disponibles dans les outils développeur
-- **Edge Function logs** : Accessibles via Lovable Cloud
+- **Edge Function logs** : Accessibles via le Dashboard Supabase
 - **Database logs** : Requêtes analytics Supabase
 
 ### Mises à jour
@@ -512,4 +511,4 @@ npm run lint
 
 ---
 
-*Documentation générée le 5 décembre 2024*
+*Documentation technique — dernière mise à jour : juin 2026*

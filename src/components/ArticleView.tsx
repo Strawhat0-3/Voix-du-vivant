@@ -3,7 +3,6 @@ import { useParams, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import Header from "./Header";
 import Footer from "./Footer";
-import { RatingStars } from "./RatingStars";
 import { CommentsSection } from "./CommentsSection";
 import { useTrackView } from "@/hooks/useTrackView";
 import { Calendar, User, Clock, ChevronRight } from "lucide-react";
@@ -12,6 +11,7 @@ import { SEO } from "./SEO";
 import { SocialShare } from "./SocialShare";
 import { BookmarkButton } from "./BookmarkButton";
 import { sanitizeHtml } from "@/lib/sanitize";
+import ClapButton from "./ClapButton";
 
 interface Article {
   id: string;
@@ -28,22 +28,9 @@ interface Article {
   };
 }
 
-
-interface ArticleRating {
-  avgRating: number;
-  totalRatings: number;
-  userRating: number;
-}
-
 export const ArticleView = () => {
   const { slug } = useParams<{ slug: string }>();
   const [article, setArticle] = useState<Article | null>(null);
-  
-  const [rating, setRating] = useState<ArticleRating>({
-    avgRating: 0,
-    totalRatings: 0,
-    userRating: 0,
-  });
   const [loading, setLoading] = useState(true);
 
   useTrackView({
@@ -269,12 +256,9 @@ export const ArticleView = () => {
                 <BookmarkButton articleId={article.id} size="default" />
               </div>
 
-              {/* Rating */}
-              <div className="mt-10 p-6 bg-muted/50 rounded-xl">
-                <h3 className="text-lg font-semibold text-foreground mb-4">
-                  Notez cet article
-                </h3>
-                <RatingStars contentId={article.id} contentType="article" />
+              {/* Clap — Engagement éditorial */}
+              <div className="mt-10 flex items-center justify-center">
+                <ClapButton contentId={article.id} contentType="article" />
               </div>
 
               {/* Comments */}

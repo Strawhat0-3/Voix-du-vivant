@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import Header from "./Header";
 import Footer from "./Footer";
-import { RatingStars } from "./RatingStars";
+import ClapButton from "./ClapButton";
 import { CommentsSection } from "./CommentsSection";
 import { useTrackView } from "@/hooks/useTrackView";
 import { ArrowLeft, Calendar, Clock, Video, Music } from "lucide-react";
@@ -229,8 +229,8 @@ export const PodcastView = () => {
             <p className="text-lg text-muted-foreground">{podcast.description}</p>
           </div>
 
-          <div className="mt-8 pt-8 border-t">
-            <RatingStars contentId={podcast.id} contentType="podcast" />
+          <div className="mt-8 pt-8 border-t flex items-center justify-center">
+            <ClapButton contentId={podcast.id} contentType="podcast" />
           </div>
 
           <div className="mt-8">

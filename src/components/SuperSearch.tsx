@@ -174,7 +174,7 @@ interface SuperSearchProps {
 
 export const SuperSearch = ({ open, onClose }: SuperSearchProps) => {
   const [query, setQuery] = useState("");
-  const debouncedQuery = useDebounce(query, 280);
+  const debouncedQuery = useDebounce(query, 300);
   const inputRef = useRef<HTMLInputElement>(null);
 
   /* Auto-focus on open */
@@ -264,7 +264,7 @@ export const SuperSearch = ({ open, onClose }: SuperSearchProps) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[100] bg-foreground/25 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] bg-background/50 backdrop-blur-md"
             onClick={onClose}
             aria-hidden="true"
           />
@@ -281,7 +281,7 @@ export const SuperSearch = ({ open, onClose }: SuperSearchProps) => {
             aria-modal="true"
             aria-label="Recherche rapide"
           >
-            <div className="bg-card border border-border/60 rounded-leaf shadow-elevated overflow-hidden">
+            <div className="bg-card/95 backdrop-blur-sm border border-border/60 rounded-leaf shadow-elevated overflow-hidden">
               {/* Search input row */}
               <div className="flex items-center gap-3 px-4 py-3 border-b border-border/40">
                 {isFetching ? (
@@ -443,5 +443,7 @@ export const useSuperSearch = () => {
 
   return { open, openSearch, closeSearch };
 };
+
+export { SuperSearch as SuperSearchModal };
 
 export default SuperSearch;
